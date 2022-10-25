@@ -5,18 +5,21 @@ class AccountsController < ApplicationController
   end
 
   def show
-    @account = Account.find(params[:account_id])
+    @account = Account.find(params[:id])
   end
 
   def new
-  
+    @account = Account.new
   end
 
   def create
     @account = Account.new(account_params)
 
-    @account.save
-    redirect_to @account
+    if @account.save
+      redirect_to @account
+    else
+      render 'new'
+    end
   end
 
   private 
