@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
   belongs_to :article
-  belongs_to :accounts
+  belongs_to :account
 end
