@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
-  belongs_to :article
-  belongs_to :comment
+  has_many :article
+  has_many :comment
 
 
 end

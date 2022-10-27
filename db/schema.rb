@@ -10,17 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_25_181948) do
+ActiveRecord::Schema.define(version: 2022_10_27_154509) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "article_id", null: false
-    t.integer "comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_accounts_on_article_id"
-    t.index ["comment_id"], name: "index_accounts_on_comment_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -28,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_10_25_181948) do
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "account_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -36,10 +33,9 @@ ActiveRecord::Schema.define(version: 2022_10_25_181948) do
     t.integer "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "account_id"
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  add_foreign_key "accounts", "articles"
-  add_foreign_key "accounts", "comments"
   add_foreign_key "comments", "articles"
 end

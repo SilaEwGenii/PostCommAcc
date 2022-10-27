@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
     has_many :comments, :dependent => :destroy
-    has_many :accounts
+    belong_to :accounts
     validates :title, presence:true,
                         length: { minimum: 5 }
 

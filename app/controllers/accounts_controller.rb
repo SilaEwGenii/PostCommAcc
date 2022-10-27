@@ -9,10 +9,6 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
-
-
-
-
     #@article = Article.find(params[:article_id])
     #@account = @article.accounts.create(account_params)
     #redirect_to article_path(@article)
