@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th></th>
+    <th colspan="2" ></th>
   </tr>
  
   <% @accounts.each do |account| %>
@@ -12,6 +12,7 @@
       <td><%= account.name %></td>
       <td><%= account.email %></td>
       <td><%= link_to 'Show', account_path(account) %></td>
+      <td><%= link_to 'Edit', edit_account_path(account) %></td>
     </tr>
   <% end %>
 </table>

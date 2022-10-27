@@ -3,24 +3,23 @@ class AccountsController < ApplicationController
   def index
     @accounts = Account.all
   end
+  
 
-  def show
-    @account = Account.find(params[:id])
-  end
 
-  def new
-    @account = Account.new
-  end
 
   def create
     @account = Account.new(account_params)
 
-    if @account.save
-      redirect_to @account
-    else
-      render 'new'
-    end
+
+
+
+    #@article = Article.find(params[:article_id])
+    #@account = @article.accounts.create(account_params)
+    #redirect_to article_path(@article)
   end
+
+
+
 
   private 
   def account_params
