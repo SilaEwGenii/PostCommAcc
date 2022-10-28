@@ -15,6 +15,12 @@
     </div>
   <% end %>
  
+      <p>
+        <%= form.label :account_id %><br>
+        <%= form.select :account_id, Account.all.map { |acc| [acc.name, acc.id]} %>
+    </p>
+
+
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
