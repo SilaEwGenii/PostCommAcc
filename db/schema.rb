@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_27_140244) do
+ActiveRecord::Schema.define(version: 2022_12_16_105601) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -36,5 +36,14 @@ ActiveRecord::Schema.define(version: 2022_11_27_140244) do
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
+  create_table "subscribes", force: :cascade do |t|
+    t.integer "subscribe"
+    t.integer "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_subscribes_on_account_id"
+  end
+
   add_foreign_key "comments", "articles"
+  add_foreign_key "subscribes", "accounts"
 end

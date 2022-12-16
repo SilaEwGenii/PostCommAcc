@@ -1,0 +1,13 @@
+<h2> Подписки </h2>
+
+<%= form_with model: @subscribe do |f| %>
+  <%=f.label "Follower"  %>
+  <%=f.select :subscribe, Account.all.map { |acc| [acc.name, acc.id]} %>
+  <br>
+  <br>
+  <br>
+  <%=f.label "Followed"  %>
+  <%=f.select :account_id, Account.all.map { |acc| [acc.name, acc.id]} %>
+
+  <%= f.submit "Follow"%>
+<% end %>

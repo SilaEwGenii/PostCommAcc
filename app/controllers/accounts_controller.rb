@@ -5,7 +5,8 @@ class AccountsController < ApplicationController
   end
   
   def show
-    @account = Account.find(params[:id])    #выводит выбранный элемент и показывает его
+    @account = Account.find(params[:id]) #выводит выбранный элемент и показывает его
+    @subs = @account.subscribe
   end
 
   def new 

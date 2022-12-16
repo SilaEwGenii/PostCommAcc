@@ -9,5 +9,21 @@
 </p>
 
 
+<p>
+  <strong>Подписчики: </strong> <%= @account.subscribe.count%>
+ <p><% @account.subscribe.each do |s| %>
+            <%= Account.find(s.subscribe).name %>
+            <%end%>
+  <p>
+
+
+
+</p>
+
+<p><%= link_to "Подписаться", new_subscribe_path, class: "btn btn-primary" %></p>
+
+
+
+
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
